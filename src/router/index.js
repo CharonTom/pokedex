@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Cards from "../components/Cards.vue";
+import Card from "../components/Card.vue";
 import Inventory from "../components/Inventory.vue";
 import Details from "../components/Details.vue";
 
 const routes = [
   {
     path: "/",
-    component: Cards,
+    component: Card,
     props: true,
   },
   {
@@ -15,7 +15,7 @@ const routes = [
     props: true,
   },
   {
-    path: "/details/:id",
+    path: "/details",
     component: Details,
     props: true,
   },

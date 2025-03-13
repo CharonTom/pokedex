@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen flex flex-col">
-    <header class="bg-gray-200 p-4">
-      <div class="text-center font-bold mb-2">This is the Logo</div>
+    <header class="bg-gray-200 p-4 flex justify-end items-center gap-4">
       <Nav />
     </header>
     <main class="flex-grow p-4">
