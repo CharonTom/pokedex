@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Card from "../components/Card.vue";
+import Home from "../components/Home.vue";
 import Inventory from "../components/Inventory.vue";
 import Details from "../components/Details.vue";
 
 const routes = [
   {
     path: "/",
-    component: Card,
+    component: Home,
     props: true,
   },
   {
