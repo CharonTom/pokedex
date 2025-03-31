@@ -2,6 +2,8 @@
 import { useRouter } from "vue-router";
 import { computed } from "vue";
 import "primeicons/primeicons.css";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
 const props = defineProps({
   pokemon: {
@@ -25,6 +27,18 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const handleAction = () => {
   emit(actionEvent.value, props.pokemon);
+
+  if (actionEvent.value === "add-to-pokedex") {
+    toast.success(`${capitalize(props.pokemon.name)} added to Pokedex!`, {
+      autoClose: 2000,
+      position: "bottom-right",
+    });
+  } else {
+    toast.error(`${capitalize(props.pokemon.name)} removed from Pokedex!`, {
+      autoClose: 2000,
+      position: "bottom-right",
+    });
+  }
 };
 
 const seeDetails = () => {
