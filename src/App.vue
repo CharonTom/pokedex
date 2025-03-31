@@ -28,7 +28,7 @@ const removeFromPokedex = (pokemonId) => {
       />
     </main>
     <footer class="bg-gray-200 p-4 text-center">
-      <div>This is the footer</div>
+      <div>This is the PokeFooter</div>
     </footer>
   </div>
 </template>
