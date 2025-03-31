@@ -31,25 +31,46 @@ const seeDetails = () => {
   router.push("/details");
 };
 
-const typeColors = {
-  fire: "bg-red-200 text-black rounded-xl",
-  water: "bg-blue-200 text-black rounded-xl",
-  grass: "bg-green-200 text-black rounded-xl",
-  electric: "bg-yellow-200 text-black rounded-xl",
-  poison: "bg-purple-200 text-black rounded-xl",
-  normal: "bg-gray-200 text-black rounded-xl",
-  fighting: "bg-red-200 text-black rounded-xl",
-  flying: "bg-indigo-200 text-black rounded-xl",
-  ground: "bg-yellow-200 text-black rounded-xl",
-  rock: "bg-gray-200 text-black rounded-xl",
-  bug: "bg-lime-200 text-black rounded-xl",
-  ghost: "bg-indigo-200 text-black rounded-xl",
-  steel: "bg-gray-200 text-black rounded-xl",
-  ice: "bg-cyan-200 text-black rounded-xl",
-  dragon: "bg-indigo-200 text-black rounded-xl",
-  dark: "bg-gray-200 text-black rounded-xl",
-  fairy: "bg-pink-200 text-black rounded-xl",
-  psychic: "bg-pink-200 text-black rounded-xl",
+const typeBgCardColors = {
+  fire: "bg-red-200 text-black ",
+  water: "bg-blue-200",
+  grass: "bg-green-200",
+  electric: "bg-yellow-200",
+  poison: "bg-purple-200",
+  normal: "bg-gray-200",
+  fighting: "bg-red-200",
+  flying: "bg-indigo-200",
+  ground: "bg-yellow-200",
+  rock: "bg-gray-200",
+  bug: "bg-lime-200",
+  ghost: "bg-indigo-200",
+  steel: "bg-gray-200",
+  ice: "bg-cyan-200",
+  dragon: "bg-indigo-200",
+  dark: "bg-gray-200",
+  fairy: "bg-pink-200",
+  psychic: "bg-pink-200",
+};
+
+const typeBgImageColors = {
+  fire: "bg-red-100",
+  water: "bg-blue-100",
+  grass: "bg-green-100",
+  electric: "bg-yellow-100",
+  poison: "bg-purple-100",
+  normal: "bg-gray-100",
+  fighting: "bg-red-100",
+  flying: "bg-indigo-100",
+  ground: "bg-yellow-100",
+  rock: "bg-gray-100",
+  bug: "bg-lime-100",
+  ghost: "bg-indigo-100",
+  steel: "bg-gray-100",
+  ice: "bg-cyan-100",
+  dragon: "bg-indigo-100",
+  dark: "bg-gray-100",
+  fairy: "bg-pink-100",
+  psychic: "bg-pink-100",
 };
 
 const typeTagColors = {
@@ -77,10 +98,17 @@ const getTypeClass = (typeName) => {
   return typeTagColors[typeName];
 };
 
+const getTypeBgImage = (pokemon) => {
+  if (pokemon.types && pokemon.types.length > 0) {
+    const firstType = pokemon.types[0].type.name;
+    return typeBgImageColors[firstType];
+  }
+};
+
 const getCardBackground = (pokemon) => {
   if (pokemon.types && pokemon.types.length > 0) {
     const firstType = pokemon.types[0].type.name;
-    return typeColors[firstType];
+    return typeBgCardColors[firstType];
   }
 };
 </script>
@@ -112,7 +140,10 @@ const getCardBackground = (pokemon) => {
     <img
       :src="pokemon.sprites.front_default"
       :alt="pokemon.name"
-      class="w-full h-auto mb-2 border border-b rounded-xl bg-pink-50"
+      :class="[
+        getTypeBgImage(pokemon),
+        'w-full h-auto mb-2 border border-b rounded-xl',
+      ]"
     />
 
     <h3 class="text-lg font-semibold text-center mb-2">
