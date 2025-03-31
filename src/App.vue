@@ -1,21 +1,3 @@
-<template>
-  <div class="min-h-screen flex flex-col">
-    <header class="bg-gray-200 p-4 flex justify-end items-center gap-4">
-      <Nav />
-    </header>
-    <main class="flex-grow p-4">
-      <router-view
-        :pokedex="pokedex"
-        @add-to-pokedex="addToPokedex"
-        @remove-from-pokedex="removeFromPokedex"
-      />
-    </main>
-    <footer class="bg-gray-200 p-4 text-center">
-      <div>This is the footer</div>
-    </footer>
-  </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
 import Nav from "./components/Nav.vue";
@@ -32,3 +14,21 @@ const removeFromPokedex = (pokemonId) => {
   console.log("Pokedex mis à jour après suppression :", pokedex.value);
 };
 </script>
+
+<template>
+  <div class="min-h-screen flex flex-col">
+    <header class="flex justify-end items-center gap-4">
+      <Nav />
+    </header>
+    <main class="flex-grow p-4 bg-gray-100">
+      <router-view
+        :pokedex="pokedex"
+        @add-to-pokedex="addToPokedex"
+        @remove-from-pokedex="removeFromPokedex"
+      />
+    </main>
+    <footer class="bg-gray-200 p-4 text-center">
+      <div>This is the footer</div>
+    </footer>
+  </div>
+</template>

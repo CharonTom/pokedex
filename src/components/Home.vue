@@ -1,9 +1,6 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import { useRouter } from "vue-router";
 import Card from "./Card.vue";
-
-const router = useRouter();
 
 const emit = defineEmits(["add-to-pokedex"]);
 
@@ -75,15 +72,13 @@ const addToPokedex = (pokemon) => {
 
 <template>
   <section class="p-6">
-    <!-- En-tête et actions -->
-    <div class="mb-6 border-b pb-4">
-      <h1 class="text-2xl font-bold text-center mb-4">
-        Choisissez vos Pokémon
-      </h1>
+    <!-- Filtres -->
+    <div class="mb-6 border-b pb-4 flex justify-start items-center gap-x-3">
+      <h1 class="text-2xl font-bold text-center">Choisissez vos Pokémon</h1>
       <div class="flex justify-center gap-4">
         <button
           @click="toggleHeightSort"
-          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          class="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition hover:cursor-pointer"
         >
           Trier par taille
           <span v-if="sortHeightDirection === 'asc'">▲</span>
@@ -94,7 +89,7 @@ const addToPokedex = (pokemon) => {
           <select
             id="type-filter"
             v-model="selectedType"
-            class="px-4 py-2 border rounded"
+            class="px-2 py-1 border rounded hover:cursor-pointer"
           >
             <option value="all">Tous les types</option>
             <option v-for="type in availableTypes" :key="type" :value="type">
@@ -105,7 +100,7 @@ const addToPokedex = (pokemon) => {
       </div>
     </div>
 
-    <!-- Affichage des cartes Pokémon -->
+    <!-- Cartes -->
     <div class="flex flex-wrap gap-4">
       <Card
         v-for="pokemon in filteredPokemons"
