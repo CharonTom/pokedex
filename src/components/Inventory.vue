@@ -1,7 +1,6 @@
 <script setup>
-import {} from "vue";
+import Card from "./Card.vue";
 
-// Déclaration de la prop "pokedex"
 const props = defineProps({
   pokedex: {
     type: Array,
@@ -9,28 +8,28 @@ const props = defineProps({
   },
 });
 
-// Définition de l'événement à émettre vers le parent
 const emit = defineEmits(["remove-from-pokedex"]);
 
-// Fonction pour émettre l'événement de suppression
-function removeFromPokedex(pokemonId) {
-  emit("remove-from-pokedex", pokemonId);
-}
+const removeFromPokedex = (pokemon) => {
+  emit("remove-from-pokedex", pokemon.id);
+};
 </script>
 
 <template>
-  <section class="pokedex">
-    <h2>Mon Pokedex</h2>
-    <div v-if="pokedex && pokedex.length">
-      <ul>
-        <li v-for="pokemon in pokedex" :key="pokemon.id">
-          <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
-          <span>{{ pokemon.name }}</span>
-          <button @click="removeFromPokedex(pokemon.id)">❌</button>
-        </li>
-      </ul>
+  <section class="p-6">
+    <h2 class="text-2xl font-bold mb-4">Mon Pokedex</h2>
+    <div v-if="pokedex.length" class="flex flex-wrap gap-4">
+      <Card
+        v-for="pokemon in pokedex"
+        :key="pokemon.id"
+        :pokemon="pokemon"
+        :inPokedex="true"
+        @remove-from-pokedex="removeFromPokedex"
+      />
     </div>
-    <p v-else>Aucun Pokémon dans le panier.</p>
+    <p v-else class="text-center text-red-500 font-bold mt-4">
+      Aucun Pokémon dans le Pokedex.
+    </p>
   </section>
 </template>
 

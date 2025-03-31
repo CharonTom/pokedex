@@ -1,21 +1,32 @@
 <script setup>
-import { defineEmits } from "vue";
+import { defineProps, defineEmits } from "vue";
 import { useRouter } from "vue-router";
+import { computed } from "vue";
+import "primeicons/primeicons.css";
 
 const props = defineProps({
   pokemon: {
     type: Object,
     required: true,
   },
+  inPokedex: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-const emit = defineEmits(["add-to-pokedex"]);
+const emit = defineEmits(["add-to-pokedex", "remove-from-pokedex"]);
 const router = useRouter();
+
+const actionLabel = computed(() => (props.inPokedex ? "Retirer" : "Ajouter"));
+const actionEvent = computed(() =>
+  props.inPokedex ? "remove-from-pokedex" : "add-to-pokedex"
+);
 
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-const addToPokedex = () => {
-  emit("add-to-pokedex", props.pokemon);
+const handleAction = () => {
+  emit(actionEvent.value, props.pokemon);
 };
 
 const seeDetails = () => {
@@ -81,10 +92,15 @@ const getTypeClass = (typeName) => {
 
     <div class="flex flex-col gap-2 items-center">
       <button
-        @click="addToPokedex"
-        class="text-xs w-3/4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition hover:cursor-pointer"
+        @click="handleAction"
+        class="mt-2 px-4 py-2 text-white rounded transition"
+        :class="
+          inPokedex
+            ? 'bg-red-500 hover:bg-red-600'
+            : 'bg-green-500 hover:bg-green-600'
+        "
       >
-        Add to Inventory
+        {{ actionLabel }}
       </button>
       <button
         @click="seeDetails"
