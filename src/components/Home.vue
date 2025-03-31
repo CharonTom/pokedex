@@ -71,7 +71,7 @@ const addToPokedex = (pokemon) => {
 </script>
 
 <template>
-  <section class="p-6">
+  <section class="p-6 gap-4">
     <!-- Filtres -->
     <div class="mb-6 border-b pb-4 flex justify-start items-center gap-x-3">
       <h1 class="text-2xl font-bold text-center">Choisissez vos Pokémon</h1>
@@ -101,7 +101,8 @@ const addToPokedex = (pokemon) => {
     </div>
 
     <!-- Cartes -->
-    <div class="flex flex-wrap gap-4">
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
       <Card
         v-for="pokemon in filteredPokemons"
         :key="pokemon.id"
@@ -109,6 +110,7 @@ const addToPokedex = (pokemon) => {
         @add-to-pokedex="addToPokedex"
       />
     </div>
+
     <p
       v-if="!filteredPokemons.length"
       class="text-center text-red-500 font-bold mt-4"
