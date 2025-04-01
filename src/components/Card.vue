@@ -165,7 +165,7 @@ const getCardBackground = (pokemon) => {
       ]"
     />
 
-    <h2 class="text-lg font-semibold text-center mb-2">
+    <h2 class="text-lg font-press font-semibold text-center mb-2">
       {{ capitalize(pokemon.name) }}
     </h2>
 
@@ -197,6 +197,14 @@ const getCardBackground = (pokemon) => {
       >
         See details <i class="pi pi-info-circle"></i>
       </button>
+      <div>
+        <router-link
+          :to="{ name: 'details', params: { pokemonName: pokemon.name } }"
+          class="text-blue-800 hover:underline"
+        >
+          Details
+        </router-link>
+      </div>
     </div>
   </article>
 </template>
