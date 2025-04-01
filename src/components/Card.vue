@@ -191,16 +191,10 @@ const getCardBackground = (pokemon) => {
     </div>
 
     <div class="flex flex-col gap-2 items-center">
-      <!-- <button
-        @click="seeDetails"
-        class="text-xs border border-gray-500 bg-gray-300 px-4 py-2 text-black rounded hover:bg-green-600 transition hover:cursor-pointer"
-      >
-        See details <i class="pi pi-info-circle"></i>
-      </button> -->
       <div>
         <router-link
           :to="{ name: 'details', params: { pokemonName: pokemon.name } }"
-          class="border border-gray-500 bg-gray-300 px-2 py-1 text-black rounded hover:bg-green-600 transition hover:cursor-pointer"
+          class="border border-gray-500 bg-gray-300 px-2 py-1 text-black rounded hover:bg-gray-600 transition hover:cursor-pointer"
         >
           See details <i class="pi pi-info-circle"></i>
         </router-link>

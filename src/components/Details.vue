@@ -1,7 +1,6 @@
 <script setup>
 import { useRoute } from "vue-router";
 import { ref, onMounted } from "vue";
-import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 
 const route = useRoute();
@@ -26,10 +25,12 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 </script>
 
 <template>
-  <div class="p-6 max-w-screen-lg mx-auto">
+  <div class="p-6 max-w-screen-sm mx-auto">
     <div v-if="pokemon" class="bg-white shadow-xl rounded-xl p-6">
       <div class="flex justify-between items-center mb-6">
-        <h1 class="text-4xl font-semibold">{{ capitalize(pokemon.name) }}</h1>
+        <h1 class="text-4xl font-semibold font-press">
+          {{ capitalize(pokemon.name) }}
+        </h1>
         <img
           :src="pokemon.sprites.front_default"
           alt="Pokemon Sprite"
@@ -61,7 +62,7 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
       <div class="mb-6">
         <h2 class="text-2xl font-semibold mb-3">Stats</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="gap-4 flex">
           <div class="text-center">
             <h3 class="text-lg font-semibold">HP</h3>
             <p>{{ pokemon.stats[0].base_stat }}</p>
@@ -97,7 +98,7 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
       <div class="flex justify-center">
         <button
           @click="$router.push('/')"
-          class="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-800 transition"
+          class="border border-gray-500 bg-gray-300 px-2 py-1 text-black rounded hover:bg-gray-600 transition hover:cursor-pointer"
         >
           Back to Pokedex
         </button>
@@ -106,17 +107,4 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
   </div>
 </template>
 
-<style scoped>
-.bg-white {
-  background-color: #f9f9f9;
-}
-.shadow-xl {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-.rounded-xl {
-  border-radius: 15px;
-}
-.text-center {
-  text-align: center;
-}
-</style>
+<style scoped></style>
