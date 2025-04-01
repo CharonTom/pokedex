@@ -78,7 +78,7 @@ const addToPokedex = (pokemon) => {
       <div class="flex justify-center gap-4">
         <button
           @click="toggleHeightSort"
-          class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-800 transition hover:cursor-pointer"
+          class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-800 transition hover:cursor-pointer"
           :aria-label="`Trier par taille (${sortHeightDirection})`"
         >
           Trier par taille
@@ -91,7 +91,7 @@ const addToPokedex = (pokemon) => {
           <select
             id="type-filter"
             v-model="selectedType"
-            class="px-2 py-1 border rounded hover:cursor-pointer"
+            class="px-3 py-1 border hover:bg-gray-200 rounded hover:cursor-pointer"
           >
             <option value="all">Tous les types</option>
             <option v-for="type in availableTypes" :key="type" :value="type">
