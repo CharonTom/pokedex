@@ -28,7 +28,7 @@ const removeFromPokedex = (pokemon) => {
       />
     </div>
     <p v-else class="text-center text-red-500 font-bold mt-4">
-      No Pokemon found in your Invotory.
+      No Pokemon found in your Inventory.
     </p>
   </section>
 </template>
