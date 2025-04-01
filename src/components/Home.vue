@@ -79,6 +79,7 @@ const addToPokedex = (pokemon) => {
         <button
           @click="toggleHeightSort"
           class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-800 transition hover:cursor-pointer"
+          :aria-label="`Trier par taille (${sortHeightDirection})`"
         >
           Trier par taille
           <span v-if="sortHeightDirection === 'asc'">▲</span>

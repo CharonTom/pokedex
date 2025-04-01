@@ -148,6 +148,10 @@ const getCardBackground = (pokemon) => {
             : 'pi-cart-plus text-green-500',
           'cursor-pointer text-xl',
         ]"
+        :aria-label="
+          props.inPokedex ? 'Retirer du Pokedex' : 'Ajouter au Pokedex'
+        "
+        role="button"
       ></i>
     </div>
 
