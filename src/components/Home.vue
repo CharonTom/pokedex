@@ -102,8 +102,6 @@ const addToPokedex = (pokemon) => {
       </div>
     </div>
 
-    <!-- Cartes -->
-
     <div class="flex flex-wrap items-center justify-center gap-4">
       <Card
         v-for="pokemon in filteredPokemons"
