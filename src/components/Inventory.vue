@@ -17,7 +17,7 @@ const removeFromPokedex = (pokemon) => {
 
 <template>
   <section class="p-6">
-    <h2 class="text-2xl font-bold mb-4">Mon Pokedex</h2>
+    <h2 class="text-2xl font-bold mb-4">My Inventory</h2>
     <div v-if="pokedex.length" class="flex flex-wrap gap-4">
       <Card
         v-for="pokemon in pokedex"
@@ -28,7 +28,7 @@ const removeFromPokedex = (pokemon) => {
       />
     </div>
     <p v-else class="text-center text-red-500 font-bold mt-4">
-      Aucun Pokémon dans le Pokedex.
+      No Pokemon found in your Invotory.
     </p>
   </section>
 </template>

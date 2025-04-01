@@ -41,10 +41,6 @@ const handleAction = () => {
   }
 };
 
-const seeDetails = () => {
-  router.push("/details");
-};
-
 const typeBgCardColors = {
   fire: "bg-red-300 text-black ",
   water: "bg-blue-300",
@@ -131,7 +127,7 @@ const getCardBackground = (pokemon) => {
   <article
     :class="[
       getCardBackground(pokemon),
-      'w-62 p-4 border rounded-xl shadow hover:shadow-lg transition relative',
+      'w-62 h-auto p-4 border rounded-xl shadow hover:shadow-lg transition relative',
     ]"
   >
     <div class="absolute top-2 right-2 flex gap-2">
@@ -156,12 +152,12 @@ const getCardBackground = (pokemon) => {
     </div>
 
     <img
-      :src="pokemon.sprites.front_default"
+      :src="`https://play.pokemonshowdown.com/sprites/ani/${pokemon.name.toLowerCase()}.gif`"
       :alt="pokemon.name"
       aria-hidden="true"
       :class="[
         getTypeBgImage(pokemon),
-        'w-full h-auto mb-2 border border-b rounded-xl',
+        'w-full h-50 mb-2 border border-b rounded-xl',
       ]"
     />
 

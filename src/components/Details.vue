@@ -32,7 +32,7 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
           {{ capitalize(pokemon.name) }}
         </h1>
         <img
-          :src="pokemon.sprites.front_default"
+          :src="`https://play.pokemonshowdown.com/sprites/ani/${pokemon.name.toLowerCase()}.gif`"
           alt="Pokemon Sprite"
           aria-hidden="true"
           class="w-36 h-36 rounded-full border-2 border-gray-300"

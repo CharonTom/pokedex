@@ -79,21 +79,21 @@ const addToPokedex = (pokemon) => {
         <button
           @click="toggleHeightSort"
           class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-800 transition hover:cursor-pointer"
-          :aria-label="`Trier par taille (${sortHeightDirection})`"
+          :aria-label="`Sort By Size (${sortHeightDirection})`"
         >
-          Trier par taille
+          Sort By Size
           <span v-if="sortHeightDirection === 'asc'">▲</span>
           <span v-else-if="sortHeightDirection === 'desc'">▼</span>
           <span v-else>↕</span>
         </button>
         <div v-if="pokemons.length">
-          <label for="type-filter" class="mr-2">Filtrer par type :</label>
+          <label for="type-filter" class="mr-2">Filter by type :</label>
           <select
             id="type-filter"
             v-model="selectedType"
             class="px-3 py-1 border hover:bg-gray-200 rounded hover:cursor-pointer"
           >
-            <option value="all">Tous les types</option>
+            <option value="all">All Types</option>
             <option v-for="type in availableTypes" :key="type" :value="type">
               {{ capitalize(type) }}
             </option>
@@ -117,7 +117,7 @@ const addToPokedex = (pokemon) => {
       v-if="!filteredPokemons.length"
       class="text-center text-red-500 font-bold mt-4"
     >
-      Aucun Pokémon trouvé.
+      No pokemon found.
     </p>
   </section>
 </template>
