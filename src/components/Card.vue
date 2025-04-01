@@ -128,7 +128,7 @@ const getCardBackground = (pokemon) => {
 </script>
 
 <template>
-  <div
+  <article
     :class="[
       getCardBackground(pokemon),
       'w-62 p-4 border rounded-xl shadow hover:shadow-lg transition relative',
@@ -154,15 +154,16 @@ const getCardBackground = (pokemon) => {
     <img
       :src="pokemon.sprites.front_default"
       :alt="pokemon.name"
+      aria-hidden="true"
       :class="[
         getTypeBgImage(pokemon),
         'w-full h-auto mb-2 border border-b rounded-xl',
       ]"
     />
 
-    <h3 class="text-lg font-semibold text-center mb-2">
+    <h2 class="text-lg font-semibold text-center mb-2">
       {{ capitalize(pokemon.name) }}
-    </h3>
+    </h2>
 
     <div class="flex justify-start gap-2 mb-2">
       <span
@@ -193,5 +194,5 @@ const getCardBackground = (pokemon) => {
         See details <i class="pi pi-info-circle"></i>
       </button>
     </div>
-  </div>
+  </article>
 </template>
