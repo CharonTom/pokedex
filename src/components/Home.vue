@@ -73,8 +73,8 @@ const addToPokedex = (pokemon) => {
 <template>
   <section class="p-6 gap-4">
     <!-- Filtres -->
-    <div class="mb-6 border-b pb-4 flex justify-start items-center gap-x-3">
-      <h1 class="text-2xl font-bold text-center">Choisissez vos Pokémon</h1>
+    <div class="mb-6 border-b pb-4 gap-x-3">
+      <h1 class="text-4xl font-bold text-center p-4 mb-4">Pokedex</h1>
       <div class="flex justify-center gap-4">
         <button
           @click="toggleHeightSort"
