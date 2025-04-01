@@ -78,7 +78,7 @@ const addToPokedex = (pokemon) => {
       <div class="flex justify-center gap-4">
         <button
           @click="toggleHeightSort"
-          class="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition hover:cursor-pointer"
+          class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-800 transition hover:cursor-pointer"
         >
           Trier par taille
           <span v-if="sortHeightDirection === 'asc'">▲</span>
@@ -86,6 +86,7 @@ const addToPokedex = (pokemon) => {
           <span v-else>↕</span>
         </button>
         <div v-if="pokemons.length">
+          <label for="type-filter" class="mr-2">Filtrer par type :</label>
           <select
             id="type-filter"
             v-model="selectedType"
