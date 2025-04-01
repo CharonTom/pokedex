@@ -15,7 +15,8 @@ const routes = [
     props: true,
   },
   {
-    path: "/details",
+    path: "/details/:pokemonName",
+    name: "details",
     component: Details,
     props: true,
   },
