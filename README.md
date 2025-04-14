@@ -8,7 +8,7 @@ Suivez ces étapes pour installer et configurer le projet.
 
 ### Assurez vous d'avoir Node installé sur votre machine et faites "npm install" à la racine du projet pour installer les dépendances
 
-### Lancer l'application avec "npm run dev"
+### Lancer l'application avec "npm run dev" et rendez-vous à l'adresse localhost:5173 dans le navigateur de votre choix.
 
 ### Technologies utilisées
 
@@ -16,3 +16,4 @@ Suivez ces étapes pour installer et configurer le projet.
 - TailwindCSS
 
 Auteur : Tom Charon
+ 
