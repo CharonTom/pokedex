@@ -8,9 +8,7 @@ Suivez ces étapes pour installer et configurer le projet.
 
 ### Assurez vous d'avoir Node installé sur votre machine et faites "npm install" à la racine du projet pour installer les dépendances
 
-### Lancer l'application
-
-npm run dev
+### Lancer l'application avec "npm run dev"
 
 ### Technologies utilisées
 
